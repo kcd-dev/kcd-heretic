@@ -1,9 +1,3 @@
-> **再分发说明（2026-11-17）**
->
-> 本仓库是 [p-e-w/heretic](https://github.com/p-e-w/heretic) 的再分发副本。本次只把根目录 `README.md` 换成中文译本，程序代码未改。原英文 README 仍在上游仓库。
->
-> 版权所有 © 2025-2026 Philipp Emanuel Weidmann（<pew@worldwidemann.com>）及贡献者。本程序按 GNU Affero General Public License v3.0 再分发，许可证全文见仓库内 [`LICENSE`](/LICENSE)。
-
 <div align="center">
 
 <img width="128" alt="Heretic logo" src="https://github.com/user-attachments/assets/df5f2840-2f92-4991-aa57-252747d7182e" />
@@ -195,7 +189,7 @@ Heretic 的开发参考了：
 
 ## 引用
 
-如果研究中使用了 Heretic，请用下面的 BibTeX 引用。引用对象是上游仓库，不是本中文再分发副本。
+如果研究中使用了 Heretic，请用下面的 BibTeX 引用。
 
 ```bibtex
 @misc{heretic,
@@ -207,18 +201,3 @@ Heretic 的开发参考了：
   howpublished = {\url{https://github.com/p-e-w/heretic}}
 }
 ```
-
-
-## 许可证
-
-Copyright &copy; 2025-2026 Philipp Emanuel Weidmann (<pew@worldwidemann.com>) + contributors
-
-本程序是自由软件：你可以按自由软件基金会发布的 GNU Affero General Public License 第 3 版，或（依你的选择）任何后续版本，再分发和/或修改它。
-
-本程序的发布是希望它有用，但**没有任何担保**；也没有对适销性或特定用途适用性的默示担保。详情见 GNU Affero General Public License。
-
-你应当已随本程序收到 GNU Affero General Public License 的副本。如果没有，见 <https://www.gnu.org/licenses/>。
-
-**向本项目贡献代码，即表示你同意以同一许可证发布你的贡献。**
-
-本中文 README 是对上游说明的翻译。程序许可证、版权人和贡献条款不因翻译而改变。
