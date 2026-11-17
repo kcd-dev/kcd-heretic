@@ -1,13 +1,19 @@
+> **再分发说明（2026-11-17）**
+>
+> 本仓库是 [p-e-w/heretic](https://github.com/p-e-w/heretic) 的再分发副本。本次只把根目录 `README.md` 换成中文译本，程序代码未改。原英文 README 仍在上游仓库。
+>
+> 版权所有 © 2025-2026 Philipp Emanuel Weidmann（<pew@worldwidemann.com>）及贡献者。本程序按 GNU Affero General Public License v3.0 再分发，许可证全文见仓库内 [`LICENSE`](/LICENSE)。
+
 <div align="center">
 
 <img width="128" alt="Heretic logo" src="https://github.com/user-attachments/assets/df5f2840-2f92-4991-aa57-252747d7182e" />
 
 # Heretic
 
-### Training-free language model modification
+### 无需训练的语言模型修改
 
-**Remove censorship**, suppress slop, reduce sycophancy, and more.<br>
-All in an afternoon, on your gaming PC.
+**去除审查**，抑制套话，降低谄媚，以及更多。<br>
+一个下午，在你的游戏电脑上就能做完。
 
 [![Discord](https://img.shields.io/discord/1447831134212984903?color=5865F2&label=discord&labelColor=black&logo=discord&logoColor=white&style=for-the-badge)](https://discord.gg/gdXc48gSyT)&nbsp;&nbsp;&nbsp;&nbsp;
 [![Matrix](https://img.shields.io/badge/Matrix-black?logo=matrix&style=for-the-badge)](https://matrix.to/#/#heretic:matrix.org)&nbsp;&nbsp;&nbsp;
@@ -24,46 +30,33 @@ All in an afternoon, on your gaming PC.
 [![Model and download statistics](https://github.com/user-attachments/assets/c9b5a660-7ef9-43c7-991c-fd9d63ea8bd8)](https://heretic.sdad.pro/)
 
 
-## Modify any LLM that you can run on your hardware[^1]
+<a id="modify-any-llm"></a>
 
-[^1]: Heretic supports on-the-fly 4-bit model quantization with bitsandbytes,
-which can reduce the amount of VRAM required to process a model to the same amount
-that is used to run a typical quantized version of it, at a slight accuracy cost.
-Set the `quantization` option to `bnb_4bit` to enable this.
+## 修改任何你的硬件跑得动的语言模型[^1]
 
-Heretic is a unique tool that lets you do what only corporations with access
-to massive computing power usually do: *Modify,* rather than merely run,
-language models. It does not perform expensive training; rather, it uses
-a collection of mathematical techniques to steer behavior based on contrasting
-example prompts and matching scorers.
+[^1]: Heretic 支持用 bitsandbytes 做即时 4-bit 量化。开启后，处理模型所需的显存可以降到与运行一个典型量化版本相近，代价是精度略有损失。把 `quantization` 设为 `bnb_4bit` 即可启用。
 
-Heretic can, depending on the configuration:
+Heretic 让你做一件通常只有掌握大量算力的公司才做的事：*修改*语言模型，而不只是运行它。它不做昂贵的训练，而是用一组数学方法，根据对照示例提示词和对应的评分器来引导模型行为。
 
-* **Suppress refusals/remove censorship** (this is the [default action](/config.default.toml))
-* Reduce slop ([`config.noslop.toml`](/config.noslop.toml))
-* Reduce humor ([`config.nohumor.toml`](/config.nohumor.toml))
-* Reduce sycophancy ([`config.nosyco.toml`](/config.nosyco.toml))
-* Alter emotional alignment ([`config.emotions.toml`](/config.emotions.toml))
-* Shorten response length ([`config.terse.toml`](/config.terse.toml))
+按配置不同，Heretic 可以：
 
-and many, many other things.
+* **抑制拒答 / 去除审查**（这是[默认动作](/config.default.toml)）
+* 减少套话（slop）（[`config.noslop.toml`](/config.noslop.toml)）
+* 减少幽默（[`config.nohumor.toml`](/config.nohumor.toml)）
+* 减少谄媚（sycophancy）（[`config.nosyco.toml`](/config.nosyco.toml)）
+* 调整情绪对齐（[`config.emotions.toml`](/config.emotions.toml)）
+* 缩短回答长度（[`config.terse.toml`](/config.terse.toml)）
 
-### :bangbang: Using Heretic does NOT require understanding how language models work internally :bangbang:
+以及很多其他事情。
 
-In fact, you can go from zero to removing censorship from your first model
-[in a matter of seconds](#usage). Heretic supports most dense models, including
-many multimodal models, several different MoE architectures, and many modern
-hybrid models.
+### :bangbang: 使用 Heretic 不需要理解语言模型的内部原理 :bangbang:
 
-The community has created and published
-[thousands](https://huggingface.co/models?other=heretic)
-of models with Heretic.
-Heretic models have been independently benchmarked using standard metrics
-like MMLU and GSM8K, and have been found to compare favorably against models
-produced with competing abliteration tools.[^2][^3]
+事实上，你可以[几秒内](#usage)从零开始，对第一个模型做去除审查。Heretic 支持大多数稠密模型，包括许多多模态模型、若干种 MoE 架构，以及许多现代混合架构模型。
 
-[^2]: [Qwen2.5-7B: Three-Way Abliteration Comparison](https://huggingface.co/DreamFast/Qwen-2.5-7b-abliterlitics): *"Heretic is the most surgical and most effective."*
-[^3]: [Gemma 4 E4B: 23 Abliteration Variants Compared](https://huggingface.co/DreamFast/Gemma4-e4b-abliterlitics): *"Best overall: heretic."*
+社区已经用 Heretic 制作并发布了[数千个](https://huggingface.co/models?other=heretic)模型。这些模型经过 MMLU、GSM8K 等标准指标的独立评测，相对其他 abliteration 工具产出的模型表现更好。[^2][^3]
+
+[^2]: [Qwen2.5-7B：三种 abliteration 对比](https://huggingface.co/DreamFast/Qwen-2.5-7b-abliterlitics)：*"Heretic is the most surgical and most effective."*（Heretic 最精准，也最有效。）
+[^3]: [Gemma 4 E4B：23 种 abliteration 变体对比](https://huggingface.co/DreamFast/Gemma4-e4b-abliterlitics)：*"Best overall: heretic."*（综合最佳：heretic。）
 
 &nbsp;
 
@@ -72,189 +65,113 @@ produced with competing abliteration tools.[^2][^3]
 &nbsp;
 
 
-## Usage
+<a id="usage"></a>
 
-Prepare a Python 3.10+ environment with PyTorch 2.6+ installed as appropriate
-for your hardware. Then run:
+## 用法
+
+准备 Python 3.10+ 环境，并按你的硬件装好 PyTorch 2.6+。然后运行：
 
 ```sh
 pip install -U heretic-llm
 heretic Qwen/Qwen3-4B-Instruct-2507
 ```
 
-Replace `Qwen/Qwen3-4B-Instruct-2507` with whatever model you want to process.
-**By default, Heretic performs censorship removal (refusal suppression).**
-If you want to do something else, choose one of the configuration files linked
-above, or write your own. See [`config.default.toml`](/config.default.toml)
-for available configuration options. Heretic loads the configuration from
-`config.toml` in the working directory by default, or from the file path in the
-`HERETIC_CONFIG_FILE` environment variable.
+把 `Qwen/Qwen3-4B-Instruct-2507` 换成你要处理的模型。**默认情况下，Heretic 做的是去除审查（抑制拒答）。** 如果要做别的，选用上面链接的配置文件，或自己写一份。可用配置项见 [`config.default.toml`](/config.default.toml)。Heretic 默认读取工作目录里的 `config.toml`，也可以用环境变量 `HERETIC_CONFIG_FILE` 指定配置文件路径。
 
 > [!IMPORTANT]
 >
-> Configuration files made for Heretic 1.x are **not** compatible with Heretic 2.x!
-> See the [migration guide](/docs/migration_v1_to_v2.md) for what you need to change
-> in order to make your old configurations work.
+> 为 Heretic 1.x 写的配置文件**不能**用于 Heretic 2.x！
+> 旧配置要改什么，见[迁移指南](/docs/migration_v1_to_v2.md)。
 
-At the start of a program run, Heretic benchmarks the system to determine
-the optimal batch size to make the most of the available hardware.
-On an RTX 3090, with the default configuration, processing
-[Qwen3-4B-Instruct-2507](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507)
-takes about 30-40 minutes.
+程序一开始会先做基准测试，按现有硬件选出合适的 batch size。在 RTX 3090 上，使用默认配置处理 [Qwen3-4B-Instruct-2507](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507) 大约需要 30–40 分钟。
 
-After Heretic has finished processing a model, you are given the choice to
-save the model, upload it to Hugging Face, chat with it to test how well it works,
-run standard benchmarks on it, or any combination of those actions.
+处理结束后，你可以选择：保存模型、上传到 Hugging Face、跟它对话看效果、跑标准基准，或任意组合。
 
 
-## Controlling what Heretic does using scorer plugins
+<a id="scorers"></a>
 
-Heretic steers model behavior by optimizing one or multiple scores. Scores are
-computed by scorer plugins. You can easily write your own scorers to get full
-control over what Heretic does to models.
+## 用评分插件控制 Heretic 做什么
 
-The `Scorer` interface (abstract base class) your scorer needs to inherit from
-is defined in [`scorer.py`](/src/heretic/scorer.py). The only required method
-is `get_score`, but there is more machinery (such as settings management)
-available when you need it.
+Heretic 通过优化一个或多个分数来引导模型行为。分数由评分插件（scorer plugin）计算。你可以自己写评分器，完全控制 Heretic 对模型做的事。
 
-By default, Heretic scores models by refusal rate (implemented in
-[`keyword_rate.py`](/src/heretic/scorers/keyword_rate.py)) and KL divergence
-(implemented in [`kl_divergence.py`](/src/heretic/scorers/kl_divergence.py)).
-Additional scorers are available in the [`scorers` directory](/src/heretic/scorers/).
-These scorers can serve as examples for your own implementations, and can easily
-be adapted to your needs.
+评分器必须继承的 `Scorer` 接口（抽象基类）定义在 [`scorer.py`](/src/heretic/scorer.py)。唯一必须实现的方法是 `get_score`，需要时还有更多机制可用（例如设置管理）。
 
-Scorers are configured through the [main configuration file](/config.default.toml).
-Which scorer plugins are active is determined by the `scorers` setting, which
-also controls whether a scorer's score should be minimized or maximized during
-optimization. Any number of scorers can be used simultaneously, and their scores
-will be co-optimized. Multiple instances of the same scorer can be configured
-with different settings. See the configuration file for the full documentation
-of this mechanism.
+默认情况下，Heretic 用拒答率（实现于 [`keyword_rate.py`](/src/heretic/scorers/keyword_rate.py)）和 KL 散度（实现于 [`kl_divergence.py`](/src/heretic/scorers/kl_divergence.py)）给模型打分。[`scorers` 目录](/src/heretic/scorers/)里还有其他评分器。它们可以当例子，也可以按你的需要改。
 
-The path to a scorer plugin can be specified either as a fully qualified import
-path (`fully.qualified.module.MyScorerClass`) or as a file path followed by
-a class name (`path/to/plugin.py:MyScorerClass`). You do **not** have to modify
-the Heretic package code in order to use your own plugins.
+评分器通过[主配置文件](/config.default.toml)配置。哪些评分插件生效，由 `scorers` 设置决定；它同时决定优化时是最小化还是最大化该分数。可以同时使用任意多个评分器，它们的分数会一起优化。同一个评分器也可以配多份不同设置。这一机制的完整说明见配置文件。
 
-Heretic also has modifier plugins, which are described in
-[the next section](#how-heretic-works).
+评分插件路径可以写成完整导入路径（`fully.qualified.module.MyScorerClass`），也可以写成「文件路径 + 类名」（`path/to/plugin.py:MyScorerClass`）。使用自己的插件时，**不必**改 Heretic 包内的代码。
+
+Heretic 还有修改器插件，见[下一节](#how-heretic-works)。
 
 
-## How Heretic works
+<a id="how-heretic-works"></a>
 
-Heretic combines a pluggable modifier (interface in
-[`modifier.py`](/src/heretic/modifier.py)) with a TPE-based hyperparameter optimizer
-powered by [Optuna](https://optuna.org/). The optimizer finds a set of parameters that,
-when passed to the modifier, minimize or maximize a set of configurable scores on the resulting model ([see above](#controlling-what-heretic-does-using-scorer-plugins)).
+## Heretic 如何工作
 
-Heretic ships with two modifiers:
+Heretic 把可插拔的修改器（接口在 [`modifier.py`](/src/heretic/modifier.py)）和基于 TPE 的超参数优化器结合起来，优化器由 [Optuna](https://optuna.org/) 驱动。优化器找出一组参数，交给修改器后，使结果模型上的一组可配置分数被最小化或最大化（[见上一节](#scorers)）。
 
-* **Arbitrary-Rank Ablation (ARA)**[^4]: This is the default modifier, and was
-  specifically developed for use in Heretic. You can find an overview of how ARA
-  works in [the original pull request](https://github.com/p-e-w/heretic/pull/211),
-  and see the precise implementation in [`ara.py`](/src/heretic/modifiers/ara.py).
+Heretic 自带两种修改器：
 
-* **Directional ablation aka "abliteration"**[^5]: The classic method for refusal
-  suppression. Heretic's implementation uses a flexible ablation weight kernel over
-  the layers, and supports both projected abliteration[^6] and norm preservation (MPOA)[^7].
-  The complete code is in [`abliteration.py`](/src/heretic/modifiers/abliteration.py).
+* **任意秩消融（Arbitrary-Rank Ablation，ARA）**[^4]：这是默认修改器，专为 Heretic 开发。ARA 的概述见[最初的 pull request](https://github.com/p-e-w/heretic/pull/211)，精确实现见 [`ara.py`](/src/heretic/modifiers/ara.py)。
 
-[^4]: *Weidmann 2026.* A preprint explaining the technique will be available soon.
+* **方向消融，也就是 “abliteration”**[^5]：抑制拒答的经典方法。Heretic 的实现在各层上使用灵活的消融权重核，并同时支持投影消融（projected abliteration）[^6]和保范数（MPOA）[^7]。完整代码在 [`abliteration.py`](/src/heretic/modifiers/abliteration.py)。
+
+[^4]: *Weidmann 2026.* 解释该技术的预印本即将发布。
 [^5]: *[Arditi et al. 2024](https://arxiv.org/abs/2406.11717)*
 [^6]: *[Lai 2025 (1)](https://huggingface.co/blog/grimjim/projected-abliteration)*
 [^7]: *[Lai 2025 (2)](https://huggingface.co/blog/grimjim/norm-preserving-biprojected-abliteration)*
 
-You can use the `modifiers` setting to switch between modifier implementations.
-Despite the name of the setting using a plural form, Heretic currently allows
-only a single modifier for a given processing run. This may change in the future.
+用 `modifiers` 设置切换修改器实现。这个设置的名字是复数，但目前一次处理只允许一个修改器。以后可能会变。
 
 
-## Reproducibility and the Heretic Grimoire
+<a id="grimoire"></a>
 
-Heretic has the ability to create *reproducible models* whose repositories contain
-all information required to produce a byte-for-byte identical model on demand,
-provided that the environment is perfectly identical to the original one. PyTorch
-doesn't guarantee that operations return identical outputs unless hardware, drivers,
-operating system, and the entire software stack including all package versions
-are exactly the same.
+## 可复现性与 Heretic 魔典
 
-Heretic manages all that complexity for you. When uploading a processed model to
-Hugging Face, Heretic offers to include reproducibility information. This is entirely
-optional, but if you choose to do so, the uploaded repository will contain a
-`reproduce` folder with detailed instructions for recreating the model
-([example](https://huggingface.co/heretic-org/LFM2.5-VL-3B-heretic/tree/main/reproduce)).
-This folder contains both human-readable instructions and a machine-readable manifest
-file named `reproduce.json`, which includes all the information Heretic needs to
-**automatically** reproduce the model.
+Heretic 可以做出*可复现模型*：模型仓库里带有按需生成逐字节相同模型所需的全部信息，前提是环境与当初完全一致。PyTorch 不保证运算结果逐字节相同，除非硬件、驱动、操作系统，以及包含全部包版本在内的整个软件栈都完全一样。
 
-Automatic reproduction can be performed with
+这些复杂度由 Heretic 替你管。把处理好的模型上传到 Hugging Face 时，Heretic 会询问要不要附上可复现信息。这完全可选。如果选择附上，上传的仓库会有一个 `reproduce` 目录，里面是重建该模型的详细说明（[示例](https://huggingface.co/heretic-org/LFM2.5-VL-3B-heretic/tree/main/reproduce)）。这个目录既有人读的说明，也有机器可读的清单文件 `reproduce.json`。Heretic **自动**复现模型所需的信息都在这份清单里。
+
+自动复现：
 
 ```sh
 heretic --reproduce path/to/reproduce.json
 ```
 
-Heretic will guide you through the process, checking your environment against the one
-that was used to create the model, and pointing out potentially problematic mismatches.
-The multi-hour computations that were required to make the original model do **not**
-have to be re-done, and the entire process typically takes a few minutes. After you
-have exported the resulting model, Heretic will verify the hashes of the weight files
-against those stored in the reproduction manifest (they may or may not be identical,
-depending on how closely your system resembles the original one).
+Heretic 会带你走完流程：把你的环境与创建该模型时的环境对比，并指出可能有问题的差异。当初做原始模型时那几个小时的计算**不必**重做，整个过程通常几分钟。导出结果模型后，Heretic 会把权重文件的哈希与复现清单里保存的哈希核对（是否相同，取决于你的系统与原系统有多接近）。
 
-Many people have uploaded models with reproducibility information to Hugging Face.
-Since a reproduction manifest is only around 9 kilobytes in size, these manifests
-form a portable library of models that can be reproduced at will.
+很多人已经把带可复现信息的模型上传到了 Hugging Face。一份复现清单大约只有 9 KB，这些清单构成了一个可随时复现的便携模型库。
 
-### That library is called the Heretic Grimoire. You can view it [here](https://huggingface.co/spaces/heretic-org/Heretic-Grimoire).
+### 这个库叫 Heretic 魔典（Heretic Grimoire）。可以在[这里](https://huggingface.co/spaces/heretic-org/Heretic-Grimoire)查看。
 
-But you don't have to rely on an externally hosted web application to access the
-library of manifests: The Grimoire is fundamentally designed as a *distributed* system,
-and you can fetch your own local copies of publicly available manifests from
-Hugging Face whenever you want by running
+你不必依赖外部托管的网页来访问这份清单库。魔典从根本上按*分布式*系统设计。随时可以从 Hugging Face 拉取公开清单的本地副本：
 
 ```sh
 heretic --collect-reproducibles path/to/target/folder/
 ```
 
-You now have a local backup of all reproducible Heretic models, properly catalogued.
-To update this collection, simply run the command again. It functions as an
-append-only backup, never deleting files even if the corresponding model no longer
-exists on Hugging Face.
+这样你就有了一份编目好的、全部可复现 Heretic 模型的本地备份。要更新这个集合，再跑一次同一条命令即可。它是只追加的备份：即使对应模型已经不在 Hugging Face 上，也不会删除本地文件。
 
 
-## Heretic is made by humans!
+## Heretic 是人写的
 
-Unlike lots of AI-related software today (and indeed lots of software in general),
-Heretic is **not** "vibe-coded".
+以下是原作者 [Philipp Emanuel Weidmann](https://github.com/p-e-w) 的说明译文。
 
-All of [my](https://github.com/p-e-w) commits to this project until November 2026
-were written 100% by hand, the way I have been doing programming for decades.
-I have been using LLM assistance *very* sparingly since. While many Heretic contributors
-use coding agents, I carefully review every single line of code that I merge.
-There's no "LGTM" here!
+和今天很多 AI 相关软件（以及很多软件本身）不同，Heretic **不是** “vibe-coded”（凭感觉让模型生成的代码）。
 
-Don't believe me? Check out [this pull request](https://github.com/p-e-w/heretic/pull/53),
-which accumulated **almost 350 human-written comments** over more than 7 months
-as we discussed the implementation.
-And [here is another PR](https://github.com/p-e-w/heretic/pull/191) with
-**more than 200 comments.**
+在 2026 年 11 月之前，[我](https://github.com/p-e-w)对本项目的全部提交都是 100% 手写的，沿用我几十年来的编程方式。此后我只*非常*有限地使用 LLM 辅助。许多 Heretic 贡献者会用编程代理，但我合并的每一行代码都会仔细审阅。这里没有 “LGTM”。
 
-I am the opposite of a luddite and I have used agents liberally for other projects,
-but I am proud of the code I write and so far can't quite bring myself to let a machine
-write it for me in a project I care so much about. As a result, Heretic has a lean,
-relatively simple codebase that in my opinion, and in that of some others,
-is a pleasure to work on.
+不信的话，看[这个 pull request](https://github.com/p-e-w/heretic/pull/53)：超过 7 个月里积累了**近 350 条人手写的评论**，我们在里面讨论实现。还有[另一个 PR](https://github.com/p-e-w/heretic/pull/191)，**评论超过 200 条**。
 
-If you like that, join us! Hop on the Discord and tell us about your ideas for
-improvements, or directly file an issue or open a PR.
+我不是卢德分子，其他项目里我也大量用代理。但我为自己写的代码感到自豪，在这么在意的项目上，到目前为止还是不愿意让机器替我写。结果是，Heretic 的代码库精简、相对简单。在我看来，以及在一些其他人看来，写起来是愉快的。
+
+如果你也喜欢这样，加入我们。到 Discord 上讲你的改进想法，或者直接提 issue、开 PR。
 
 
-## Prior art
+## 先前工作
 
-I'm aware of the following implementations of abliteration techniques
-that were publicly available when Heretic was first released (November 2025):
+Heretic 首次发布时（2025 年 11 月），我知道的、已经公开的 abliteration 实现有：
 
 * [AutoAbliteration](https://huggingface.co/posts/mlabonne/714992455492422)
 * [abliterator.py](https://github.com/FailSpy/abliterator)
@@ -263,26 +180,22 @@ that were publicly available when Heretic was first released (November 2025):
 * [Removing refusals with HF Transformers](https://github.com/Sumandora/remove-refusals-with-transformers)
 * [deccp](https://github.com/AUGMXNT/deccp)
 
-Note that Heretic was written from scratch, and does not reuse code from
-any of those projects.
+Heretic 是从头写的，没有复用上述任何项目的代码。
 
 
-## Acknowledgments
+## 致谢
 
-The development of Heretic was informed by:
+Heretic 的开发参考了：
 
-* [The original abliteration paper *(Arditi et al. 2024)*](https://arxiv.org/abs/2406.11717)
-* [Maxime Labonne's article on abliteration](https://huggingface.co/blog/mlabonne/abliteration),
-  as well as some details from the model cards of his own abliterated models, such as
-  the use of non-constant ablation weights
-* Jim Lai's articles describing ["projected abliteration"](https://huggingface.co/blog/grimjim/projected-abliteration)
-  and ["norm-preserving biprojected abliteration"](https://huggingface.co/blog/grimjim/norm-preserving-biprojected-abliteration)
-* Thousands of interactions with members of the community
+* [最初的 abliteration 论文 *(Arditi et al. 2024)*](https://arxiv.org/abs/2406.11717)
+* [Maxime Labonne 关于 abliteration 的文章](https://huggingface.co/blog/mlabonne/abliteration)，以及他本人消融模型卡片中的一些细节，例如使用非常数消融权重
+* Jim Lai 介绍[「投影消融」](https://huggingface.co/blog/grimjim/projected-abliteration)和[「保范数双投影消融」](https://huggingface.co/blog/grimjim/norm-preserving-biprojected-abliteration)的文章
+* 与社区成员的数千次交流
 
 
-## Citation
+## 引用
 
-If you use Heretic for your research, please cite it using the following BibTeX entry:
+如果研究中使用了 Heretic，请用下面的 BibTeX 引用。引用对象是上游仓库，不是本中文再分发副本。
 
 ```bibtex
 @misc{heretic,
@@ -296,29 +209,16 @@ If you use Heretic for your research, please cite it using the following BibTeX 
 ```
 
 
-## License
+## 许可证
 
-Copyright &copy; 2025-2026  Philipp Emanuel Weidmann (<pew@worldwidemann.com>) + contributors
+Copyright &copy; 2025-2026 Philipp Emanuel Weidmann (<pew@worldwidemann.com>) + contributors
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+本程序是自由软件：你可以按自由软件基金会发布的 GNU Affero General Public License 第 3 版，或（依你的选择）任何后续版本，再分发和/或修改它。
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
+本程序的发布是希望它有用，但**没有任何担保**；也没有对适销性或特定用途适用性的默示担保。详情见 GNU Affero General Public License。
 
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+你应当已随本程序收到 GNU Affero General Public License 的副本。如果没有，见 <https://www.gnu.org/licenses/>。
 
-**By contributing to this project, you agree to release your
-contributions under the same license.**
+**向本项目贡献代码，即表示你同意以同一许可证发布你的贡献。**
 
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
+本中文 README 是对上游说明的翻译。程序许可证、版权人和贡献条款不因翻译而改变。
